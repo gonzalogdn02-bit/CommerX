@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CommerX.Domain.Common.Exceptions;
+
+namespace CommerX.Domain.Customers.Exceptions;
+
+public sealed class InvalidEmailException : DomainException
+{
+    public InvalidEmailException(string value)
+        : base($"El email '{value}' no tiene formato válido (ej: usuario@dominio.com).") { }
+}
