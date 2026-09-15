@@ -11,4 +11,9 @@ public interface IClientRepository
 {
     Task<Client?> FindByDocumentAsync(string document);
     Task AddAsync(Client client);
+   
+    Task<Client?> FindbyIdAsync(Guid id);
+     Task<Client?> FindByEmailExcludingAsync(string email, Guid excludeClientId);
+    Task<Client> FindByIdAsync(Guid ClientId);
+    Task UpdateAsync(Client client);
 }

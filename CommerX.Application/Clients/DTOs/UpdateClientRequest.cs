@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CommerX.Application.Clients.DTOs;
 
-public class CreateClientRequest
+public class UpdateClientRequestDTO
 {
-    public required string FullName { get; init; }
+    public required string FirstName { get; init; }
     public required string LastName { get; init; }
     public required string Document { get; init; }
     public required string Email { get; init; }

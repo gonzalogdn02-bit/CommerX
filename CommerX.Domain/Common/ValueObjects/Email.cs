@@ -1,29 +1,33 @@
-﻿using CommerX.Domain.Customers.Exceptions;
-using CommerX.Domain.Common.ValueObjects;
+﻿using System;
 using System.Text.RegularExpressions;
 
-namespace CommerX.Domain.Customers.ValueObjects;
+namespace CommerX.Domain.Common.ValueObjects;
 
-// Value Object que encapsula la validación de formato de email
-public sealed record EmailAddress : ValueObject
+public sealed class Email
 {
-    // Regex compilada: mejor rendimiento en llamadas repetidas
-    private static readonly Regex EmailRegex =
-        new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.Compiled);
     public string Value { get; }
-    private EmailAddress(string value) => Value = value;
-    public static EmailAddress Create(string value)
+
+    private Email(string value)
     {
-        if (string.IsNullOrWhiteSpace(value))
-            throw new InvalidEmailException(value ?? string.Empty);
+        Value = value;
+    }
 
-        var normalized = value.Trim().ToLowerInvariant();
+    public static Email Create(string email)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("Email no puede estar vacío.", nameof(email));
 
-        if (!EmailRegex.IsMatch(normalized))
-            throw new InvalidEmailException(normalized);
+        var pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+        if (!Regex.IsMatch(email, pattern, RegexOptions.CultureInvariant))
+            throw new ArgumentException("Email con formato inválido.", nameof(email));
 
-        return new EmailAddress(normalized);
+        return new Email(email.Trim());
     }
 
     public override string ToString() => Value;
+
+    public override bool Equals(object? obj) =>
+        obj is Email other && string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
+
+    public override int GetHashCode() => StringComparer.OrdinalIgnoreCase.GetHashCode(Value);
 }

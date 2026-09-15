@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using CommerX.Application.Clients.DTOs;
+﻿using CommerX.Application.Clients.DTOs;
+using CommerX.Application.Common.Ports;
 
 namespace CommerX.Application.Clients.Ports;
 
-public interface ICreateClientOutputPort
+public interface ICreateClientOutputPort : IBaseOutputPort<CreateClientResponse>
 {
-    Task HandleSuccessAsync(CreateClientResponse response);
     Task HandleDuplicateAsync(string document);
-    Task HandleValidationErrorAsync(string message);
 }
