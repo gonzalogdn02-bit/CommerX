@@ -17,6 +17,7 @@ namespace CommerX.Application.Clients.Ports
             Task HandleDuplicateEmailAsync(string email);
             Task HandleNoChangesAsync();
             Task HandleValidationErrorAsync(string message);
+            Task handlesuccessAsync(UpdateClientResponse response);
         }
     }
 }

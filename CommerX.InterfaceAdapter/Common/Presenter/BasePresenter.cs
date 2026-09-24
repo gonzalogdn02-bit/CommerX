@@ -1,7 +1,8 @@
-﻿using CommerX.Application.Common.Results;
+﻿using CommerX.Application.Common.Ports;
+using CommerX.Application.Common.Results;
 using CommerX.Application.Common.Validation;
 
-namespace CommerX.Application.Common.Ports;
+namespace CommerX.InterfaceAdapter.Common.Presenter;
 
 public abstract class BasePresenter<T> : IBaseOutputPort<T>
 {

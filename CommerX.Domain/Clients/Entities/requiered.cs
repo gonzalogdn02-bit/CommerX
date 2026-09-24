@@ -1,9 +1,9 @@
 ﻿
 namespace CommerX.Domain.Clients.Entities
 {
-    public class requiered
+    public class Requiered
     {
-        public static implicit operator requiered(string v)
+        public static implicit operator Requiered(string v)
         {
             throw new NotImplementedException();
         }

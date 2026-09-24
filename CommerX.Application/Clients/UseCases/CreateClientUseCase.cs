@@ -1,5 +1,6 @@
 ﻿using CommerX.Application.Clients.DTOs;
 using CommerX.Application.Clients.Ports;
+using CommerX.Application.Common.Results;
 using CommerX.Application.Common.Validation;
 using CommerX.Domain.Clients.Entities;
 using CommerX.Domain.Clients.Repositories;
@@ -25,7 +26,7 @@ public sealed class CreateClientUseCase : ICreateClientInputPort
 
     public async Task ExecuteAsync(CreateClientRequest request)
     {
-        // Validación de precondiciones técnicas con Guards
+   
         var errors = _validator.Validate(request).ToList();
         if (errors.Count > 0)
         {
@@ -35,7 +36,7 @@ public sealed class CreateClientUseCase : ICreateClientInputPort
 
         try
         {
-            // Verificación de unicidad
+         
             var existing = await _repository.FindByDocumentAsync(request.Document);
             if (existing is not null)
             {
@@ -43,7 +44,6 @@ public sealed class CreateClientUseCase : ICreateClientInputPort
                 return;
             }
 
-            //Dominio (aplica invariantes de negocio)
             var client = Client.Create(
                 request.FirstName,
                 request.LastName,
@@ -62,7 +62,7 @@ public sealed class CreateClientUseCase : ICreateClientInputPort
                 FirstName = request.FirstName,
                 LastName = request.LastName
             };
-
+            
             await _outputPort.HandleSuccessAsync(response);
         }
         catch (DomainException ex)

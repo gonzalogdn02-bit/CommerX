@@ -21,9 +21,3 @@ public class BaseEntity
 
     }
 }
-// if(id = default)
-//{
-//    Id = Guid.NewGuid();
-//}
-// else
-//{
