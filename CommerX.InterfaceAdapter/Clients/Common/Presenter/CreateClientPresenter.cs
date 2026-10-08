@@ -1,9 +1,8 @@
 ﻿using CommerX.Application.Clients.DTOs;
 using CommerX.Application.Clients.Ports;
 using CommerX.Application.Common.Results;
-using CommerX.InterfaceAdapter.Common.Presenter;
 
-namespace CommerX.InterfaceAdapter.Clients.Presenters;
+namespace CommerX.InterfaceAdapter.Clients.Common.Presenter;
 
 public sealed class CreateClientPresenter : BasePresenter<CreateClientResponse>, ICreateClientOutputPort
 {

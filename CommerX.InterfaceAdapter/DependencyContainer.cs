@@ -1,4 +1,5 @@
 ﻿using CommerX.Application.Clients.Ports;
+using CommerX.InterfaceAdapter.Clients.Common.Presenter;
 using CommerX.InterfaceAdapter.Clients.Presenters;
 using CommerX.InterfaceAdapter.Clients.ViewModels;
 
@@ -8,6 +9,8 @@ public static class DependencyContainer
 {
     public static IServiceCollection AddClientPresenters(this IServiceCollection services)
     {
+        services.AddScoped<CreateClientPresenter>();
+        services.AddScoped<UpdateClientPresenter>();
         services.AddScoped<CreateClientPresenter>();
         services.AddScoped<ICreateClientOutputPort>(
             sp => sp.GetRequiredService<CreateClientPresenter>());

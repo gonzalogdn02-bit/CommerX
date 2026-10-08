@@ -1,6 +1,6 @@
 ﻿using CommerX.Application.Clients.DTOs;
 using CommerX.Application.Clients.Ports;
-using CommerX.InterfaceAdapter.Clients.Presenters;
+using CommerX.InterfaceAdapter.Clients.Common.Presenter;
 using System;
 using System.Threading.Tasks;
 

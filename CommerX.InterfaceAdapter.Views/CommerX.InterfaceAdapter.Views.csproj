@@ -12,9 +12,14 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.20" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.15">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
     <ItemGroup>
+		<ProjectReference Include="..\CommerX.Infrastructur\CommerX.Infrastructure.csproj" />
 		<ProjectReference Include="..\CommerX.InterfaceAdapter\CommerX.InterfaceAdapter.csproj" />
 	</ItemGroup>
 
