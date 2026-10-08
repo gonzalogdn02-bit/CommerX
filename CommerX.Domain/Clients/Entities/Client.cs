@@ -15,8 +15,18 @@ public class Client : BaseEntity
     public Email Email { get; private set; } = null!;
     public Phone Phone { get; private set; } = null!;
     public Address Address { get; private set; } = null!;
+    public object CreatedOn { get; set; }
 
-    protected Client() { }
+    // Constructor sin parámetros requerido por EF Core
+    private Client()
+    {
+        FirstName = null!;
+        LastName = null!;
+        DocumentNumber = null!;
+        Email = null!;
+        Phone = null!;
+        Address = null!;
+    }
 
     private Client(
         string firstName,

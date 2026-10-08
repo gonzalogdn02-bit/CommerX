@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Components
+@using CommerX.InterfaceAdapter.Clients.ViewModels
+
+@inject CreateClientViewModel ViewModel
+
+<h3>CU-CLI-001 Alta de Cliente</h3>
+
+<label>Nombre</label>
+<input @bind="ViewModel.FirstName" />
+
+<label>Apellido</label>
+<input @bind="ViewModel.LastName" />
+
+<label>Documento</label>
+<input @bind="ViewModel.Document" />
+
+<label>Email</label>
+<input @bind="ViewModel.Email" />
+
+<label>Teléfono</label>
+<input @bind="ViewModel.Phone" />
+
+<label>Domicilio</label>
+<input @bind="ViewModel.Address" />
+
+<label>Fecha de nacimiento</label>
+<input type="date" @bind="ViewModel.BirthDate" />
+
+<button @onclick="ViewModel.GuardarAsync" disabled="@ViewModel.EnCurso">
+    Guardar
+</button>
+
+<p>@ViewModel.Mensaje</p>

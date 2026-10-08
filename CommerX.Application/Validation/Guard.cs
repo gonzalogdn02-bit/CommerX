@@ -1,9 +1,13 @@
-﻿
-namespace CommerX.Application.Common.Validation;
+﻿using CommerX.Application.Common.Validation;
 
-public static class Guard
+namespace CommerX.Application.Validation
 {
-    public static GuardBuilderString Against(string? value, string paramName)
-        => new GuardBuilderString(value, paramName);
+    internal static class Guard
+    {
+        public static GuardBuilderString Against(string? value, string paramName)
+            => new GuardBuilderString(value, paramName);
 
+        public static GuardBuildinInteger Against(int value, string paramName)
+            => new GuardBuildinInteger(value, paramName);
+    }
 }

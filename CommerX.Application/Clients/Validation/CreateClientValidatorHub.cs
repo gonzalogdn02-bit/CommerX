@@ -1,5 +1,6 @@
 ﻿using CommerX.Application.Common.Validation;
 using CommerX.Application.Clients.DTOs;
+using CommerX.Application.Validation;
 
 namespace CommerX.Application.Clients.Validation;
 

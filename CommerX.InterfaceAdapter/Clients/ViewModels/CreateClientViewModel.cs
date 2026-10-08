@@ -1,23 +1,61 @@
 ﻿using CommerX.Application.Clients.DTOs;
 using CommerX.Application.Clients.Ports;
-using CommerX.Application.Common.Results;
-using CommerX.InterfaceAdapter.Common.Presenter;
+using CommerX.InterfaceAdapter.Clients.Presenters;
+using System;
+using System.Threading.Tasks;
 
-namespace CommerX.InterfaceAdapter.Clients.ViewModels;
-
-public sealed class CreateClientViewModel : BasePresenter<CreateClientResponse>, ICreateClientOutputPort
+namespace CommerX.InterfaceAdapter.Clients.ViewModels
 {
-    public CreateClientResponse Response => _result?.Value ?? default!;
-
-    public Task HandleDuplicateAsync(string document)
+    public sealed class CreateClientViewModel
     {
-        _result = OperationResult<CreateClientResponse>.Fail($"El documento '{document}' ya se encuentra registrado.");
-        return Task.CompletedTask;
-    }
+        private readonly ICreateClientInputPort _useCase;
+        private readonly CreateClientPresenter _presenter;
 
-    public Task HandleDuplicateEmailAsync(string email)
-    {
-        _result = OperationResult<CreateClientResponse>.Fail($"El email '{email}' ya se encuentra registrado.");
-        return Task.CompletedTask;
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string Document { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public DateOnly BirthDate { get; set; } = DateOnly.FromDateTime(DateTime.Today);
+
+        public string Mensaje { get; private set; } = string.Empty;
+        public bool EnCurso { get; private set; }
+
+        public CreateClientViewModel(
+            ICreateClientInputPort useCase,
+            CreateClientPresenter presenter)
+        {
+            _useCase = useCase;
+            _presenter = presenter;
+        }
+
+        public async Task GuardarAsync()
+        {
+            EnCurso = true;
+            try
+            {
+                var request = new CreateClientRequest
+                {
+                    FirstName = FirstName,
+                    LastName = LastName,
+                    Document = Document,
+                    Email = Email,
+                    Phone = Phone,
+                    Address = Address,
+                    BirthDate = BirthDate
+                };
+
+                await _useCase.ExecuteAsync(request);
+
+                Mensaje = _presenter.Result!.IsSuccess
+                    ? $"Cliente '{FirstName} {LastName}' registrado correctamente."
+                    : string.Join("; ", _presenter.Result.Errors);
+            }
+            finally
+            {
+                EnCurso = false;
+            }
+        }
     }
 }
