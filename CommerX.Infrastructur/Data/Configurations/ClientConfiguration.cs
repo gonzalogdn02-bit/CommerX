@@ -11,8 +11,6 @@ public sealed class CustomerConfiguration : IEntityTypeConfiguration<Client>
         client.ToTable("Clients");
         client.HasKey(c => c.Id);
 
-        client.Property(c => c.CreatedOn).IsRequired();
-
         client.OwnsOne(c => c.FirstName, vo =>
         {
             vo.Property(x => x.Value).HasColumnName("FirstName").HasMaxLength(100).IsRequired();

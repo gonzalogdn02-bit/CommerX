@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerX.Infrastructure", "C
 		{FF408F96-262F-4156-9607-0E19079D86EF} = {FF408F96-262F-4156-9607-0E19079D86EF}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerX.Desktop", "CommerX.Desktop\CommerX.Desktop.csproj", "{294B6F3A-E218-4F8C-93CA-8330BAF486AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,18 @@ Global
 		{9C41B4C4-7F63-4F2A-A055-768F0A95D346}.Release|x64.Build.0 = Release|Any CPU
 		{9C41B4C4-7F63-4F2A-A055-768F0A95D346}.Release|x86.ActiveCfg = Release|Any CPU
 		{9C41B4C4-7F63-4F2A-A055-768F0A95D346}.Release|x86.Build.0 = Release|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Debug|x64.Build.0 = Debug|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Debug|x86.Build.0 = Debug|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Release|x64.ActiveCfg = Release|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Release|x64.Build.0 = Release|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Release|x86.ActiveCfg = Release|Any CPU
+		{294B6F3A-E218-4F8C-93CA-8330BAF486AD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

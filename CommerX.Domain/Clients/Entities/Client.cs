@@ -1,8 +1,7 @@
 ﻿using CommerX.Domain.Common.Entities;
 using CommerX.Domain.Common.ValueObjects;
 using CommerX.Domain.Customers.ValueObjects;
-using Xamarin.Essentials;
-using static System.Collections.Immutable.ImmutableArray<T>;
+using System;
 using Email = CommerX.Domain.Common.ValueObjects.Email;
 
 namespace CommerX.Domain.Clients.Entities;
@@ -16,7 +15,7 @@ public class Client : BaseEntity
     public Email Email { get; private set; } = null!;
     public Phone Phone { get; private set; } = null!;
     public Address Address { get; private set; } = null!;
-    public DateTime CreatedOn { get; private set; }
+
     private Client()
     {
         FirstName = null!;
@@ -26,6 +25,7 @@ public class Client : BaseEntity
         Phone = null!;
         Address = null!;
     }
+
     private Client(
         string firstName,
         string lastName,

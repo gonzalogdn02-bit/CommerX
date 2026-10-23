@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommerX.Infrastructure.Migrations
 {
     [DbContext(typeof(CommerXDbContext))]
-    [Migration("20261008200326_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20261023185149_MigracionInicialLimpia")]
+    partial class MigracionInicialLimpia
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,6 @@ namespace CommerX.Infrastructure.Migrations
 
                     b.Property<DateOnly>("BirthDate")
                         .HasColumnType("date");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("createdBy")
                         .HasColumnType("uniqueidentifier");

@@ -1,6 +1,7 @@
 ﻿using CommerX.Domain.Clients.Entities;
 using CommerX.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace CommerX.Infrastructure.Data;
 

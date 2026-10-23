@@ -11,12 +11,16 @@ public static class DependencyContainerApplication
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        
         services.AddScoped<ICreateClientInputPort, CreateClientUseCase>();
         services.AddScoped<IUpdateClientInputPort, UpdateClientInteractor>();
 
         services.AddScoped<IModelValidatorHub<CreateClientRequest>, CreateClientValidationHub>();
 
         return services;
+    }
+
+    public static IServiceCollection AddCustomerUseCases(this IServiceCollection services)
+    {
+        return services.AddApplication();
     }
 }

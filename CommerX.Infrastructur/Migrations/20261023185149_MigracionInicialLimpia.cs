@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CommerX.Infrastructure.Migrations
 {
-    public partial class InitialCreate : Migration
+    /// <inheritdoc />
+    public partial class MigracionInicialLimpia : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -21,7 +23,6 @@ namespace CommerX.Infrastructure.Migrations
                     Email = table.Column<string>(type: "nvarchar(254)", maxLength: 254, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     createdBy = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     createdOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -30,6 +31,8 @@ namespace CommerX.Infrastructure.Migrations
                     table.PrimaryKey("PK_Clients", x => x.Id);
                 });
         }
+
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

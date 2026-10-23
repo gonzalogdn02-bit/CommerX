@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<ItemGroup>
+		<ProjectReference Include="..\CommerX.Application\CommerX.Application.csproj" />
+		<ProjectReference Include="..\CommerX.Infrastructur\CommerX.Infrastructure.csproj" />
+		<ProjectReference Include="..\CommerX.InterfaceAdapter\CommerX.InterfaceAdapter.csproj" />
+		<ProjectReference Include="..\CommerX.InterfaceAdapter.Views\CommerX.InterfaceAdapter.Views.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.20" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="9.0.120" />
+		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3179.45" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net9.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+</Project>
